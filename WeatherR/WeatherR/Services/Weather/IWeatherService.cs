@@ -8,6 +8,6 @@ namespace WeatherR.Weather
 {
     public interface IWeatherService
     {
-        Task<double> GetTemperatureAsync(string city);
+        Task<double> GetTemperatureTodayAsync(string city);
     }
 }

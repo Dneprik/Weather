@@ -12,12 +12,21 @@ namespace WeatherR.Weather
     class WeatherService : IWeatherService
     {
         readonly IRestClient _restClient = new RestClient();
-        const string GetTemperatureUri = "http://api.openweathermap.org/data/2.5/weather?q=Dnipropetrovsk";
-        public async Task<double> GetTemperatureAsync(string city)
+        private string _city;
+        const string GetTemperatureTodayUri = "http://api.openweathermap.org/data/2.5/weather?q=";
+
+
+        public async Task<double> GetTemperatureTodayAsync(string city)
         {
-            var responce = await _restClient.GetAsync(GetTemperatureUri);
+            var responce = await _restClient.GetAsync(GetTemperatureTodayUri+city);
             var weatherResponce = JsonConvert.DeserializeObject<WeatherResponce>(responce);
-            return weatherResponce.main.temp;
+            return KelvinToCelsius(weatherResponce.main.temp);
         }
+
+        private double KelvinToCelsius(double kelvin)
+        {
+            return kelvin - 273.15;
+        }
+
     }
 }
