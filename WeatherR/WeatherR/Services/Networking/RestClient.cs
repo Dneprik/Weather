@@ -15,9 +15,7 @@ namespace WeatherR.Services.Networking
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(uri);
             var content = await response.Content.ReadAsStringAsync();
-
-
-                return content;
+            return content;
         }
     }
 }

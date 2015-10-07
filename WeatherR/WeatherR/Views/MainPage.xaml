@@ -3,14 +3,70 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:weatherR="clr-namespace:WeatherR;assembly=WeatherR"
-             x:Class="WeatherR.Views.MainPage">
-    <StackLayout VerticalOptions="Center">
-        <Label Text="{Binding City}" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Label Text="{Binding TemperatureToday}" VerticalOptions="Center" HorizontalOptions="Center" />
+             x:Class="WeatherR.Views.MainPage"
+             Padding="15">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="25" />
 
-        <weatherR:BindablePicker ItemsSource="{Binding Cities}" SelectedIndex="{Binding SelectedCityIndex}">
-            
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="{Binding City}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" TextColor="White" FontSize="45" />
+        <Label Text="{Binding WeatherStatus}" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" HorizontalOptions="End"
+               FontSize="37" />
+        <Label Text="{Binding WeatherDescription}" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2"
+               HorizontalOptions="End" FontSize="33" />
+        <Image Source="{Binding WetherIconLink}" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="2"
+               Scale="2" />
+        <Label Text="{Binding TimeNow}" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" TextColor="White"
+               FontSize="35" />
+        <Label Text="{Binding TemperatureToday}" Grid.Row="4" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3"
+               TextColor="Pink" FontSize="121" />
+        <Label Text="{Binding HumidityToday}" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="2"
+               HorizontalOptions="End" TextColor="White" FontSize="35" />
 
-        </weatherR:BindablePicker>
-    </StackLayout>
+        <Label Text="{Binding DateOfFirstForecastDay}" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"
+               HorizontalOptions="Center" />
+        <Label Text="{Binding DateOfSecondForecastDay}" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2"
+               HorizontalOptions="Center" />
+        <Label Text="{Binding DateOfThirdForecastDay}" Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2"
+               HorizontalOptions="Center" />
+        <Label Text="{Binding TemperatureOfFirstForecastDay}" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"
+               HorizontalOptions="Center" />
+        <Label Text="{Binding TemperatureOfSecondForecastDay}" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2"
+               HorizontalOptions="Center" />
+        <Label Text="{Binding TemperatureOfThirtForecastDay}" Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2"
+               HorizontalOptions="Center" />
+
+        <weatherR:BindablePicker ItemsSource="{Binding Cities}" SelectedIndex="{Binding SelectedCityIndex}"
+                                 Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="2" />
+
+    </Grid>
+
 </ContentPage>

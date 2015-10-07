@@ -36,7 +36,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Models\List.cs" />
     <Compile Include="Models\Main.cs" />
+    <Compile Include="Models\Temp.cs" />
+    <Compile Include="Models\Weather.cs" />
+    <Compile Include="Models\WeatherForecastResponce.cs" />
     <Compile Include="Models\WeatherResponce.cs" />
     <Compile Include="CustomElements\MyPicker.cs" />
     <Compile Include="Properties\Annotations.cs" />

@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace WeatherR
@@ -13,26 +9,28 @@ namespace WeatherR
     //
     public class BindablePicker : Picker
     {
-        public BindablePicker()
-        {
-            this.SelectedIndexChanged += OnSelectedIndexChanged;
-        }
-
         public static BindableProperty ItemsSourceProperty =
-            BindableProperty.Create<BindablePicker, IEnumerable>(o => o.ItemsSource, default(IEnumerable), propertyChanged: OnItemsSourceChanged);
+            BindableProperty.Create<BindablePicker, IEnumerable>(o => o.ItemsSource, default(IEnumerable),
+                propertyChanged: OnItemsSourceChanged);
 
         public static BindableProperty SelectedItemProperty =
-            BindableProperty.Create<BindablePicker, object>(o => o.SelectedItem, default(object), propertyChanged: OnSelectedItemChanged);
+            BindableProperty.Create<BindablePicker, object>(o => o.SelectedItem, default(object),
+                propertyChanged: OnSelectedItemChanged);
+
+        public BindablePicker()
+        {
+            SelectedIndexChanged += OnSelectedIndexChanged;
+        }
 
         public IEnumerable ItemsSource
         {
-            get { return (IEnumerable)GetValue(ItemsSourceProperty); }
+            get { return (IEnumerable) GetValue(ItemsSourceProperty); }
             set { SetValue(ItemsSourceProperty, value); }
         }
 
         public object SelectedItem
         {
-            get { return (object)GetValue(SelectedItemProperty); }
+            get { return GetValue(SelectedItemProperty); }
             set { SetValue(SelectedItemProperty, value); }
         }
 

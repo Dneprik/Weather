@@ -9,5 +9,6 @@ namespace WeatherR.Models
     public class WeatherResponce
     {
         public Main main { get; set; }
+        public List<Weather> weather { get; set; }
     }
 }

@@ -9,5 +9,6 @@ namespace WeatherR.Models
     public class Main
     {
         public double temp { get; set; }
+        public int humidity { get; set; }
     }
 }
