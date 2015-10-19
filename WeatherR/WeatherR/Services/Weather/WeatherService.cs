@@ -13,6 +13,7 @@ namespace WeatherR.Weather
         private const string GetWeatherForecastUri = "http://api.openweathermap.org/data/2.5/forecast/daily?q=city&cnt=";
         private const string WeatherIconUri = "http://openweathermap.org/img/w/";
         private readonly IRestClient _restClient = new RestClient();
+        private const string WeatherAppid = "&appid=2ee33070042dd053513755b5daf5d1ab";
 
         public async Task<double> GetTemperatureTodayAsync(string city)
         {
@@ -58,7 +59,7 @@ namespace WeatherR.Weather
 
         private async Task<WeatherResponce> GetWeatherTodayAsync(string city)
         {
-            var responce = await _restClient.GetAsync(GetWeatherTodayUri + city);
+            var responce = await _restClient.GetAsync(GetWeatherTodayUri + city + WeatherAppid);
             return JsonConvert.DeserializeObject<WeatherResponce>(responce);
         }
 
@@ -66,7 +67,7 @@ namespace WeatherR.Weather
         {
             if (days > 14) days = 1;
             var weatherForecastUri = GetWeatherForecastUri.Replace("city", city);
-            var responce = await _restClient.GetAsync(weatherForecastUri + days);
+            var responce = await _restClient.GetAsync(weatherForecastUri + days + WeatherAppid);
             return JsonConvert.DeserializeObject<WeatherForecastResponce>(responce);
         }
 

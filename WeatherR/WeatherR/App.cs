@@ -11,8 +11,10 @@ namespace WeatherR
     {
         public App()
         {
-            // The root page of your application
-            MainPage = new MainPage();
+            // Old weather design
+            //MainPage = new MainPage();
+            //Weather on Map
+            MainPage = new MapPage();
         }
 
         protected override void OnStart()
