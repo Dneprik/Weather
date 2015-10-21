@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using WeatherR.Services.Location;
 using WeatherR.Views;
 using Xamarin.Forms;
 
@@ -15,9 +16,11 @@ namespace WeatherR
             //MainPage = new MainPage();
             //Weather on Map
             MainPage = new MapPage();
+          //  Location l = new Location();
+
         }
 
-        protected override void OnStart()
+    protected override void OnStart()
         {
             // Handle when your app starts
         }

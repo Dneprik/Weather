@@ -4,6 +4,8 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Xamarin.Forms;
+using XLabs.Platform.Services.Geolocation;
 
 namespace WeatherR.iOS
 {
@@ -24,6 +26,7 @@ namespace WeatherR.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             Xamarin.FormsMaps.Init();
+            DependencyService.Register<Geolocator>();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

@@ -6,6 +6,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Xamarin.Forms;
+using XLabs.Platform.Services.Geolocation;
+
 
 namespace WeatherR.Droid
 {
@@ -17,7 +20,9 @@ namespace WeatherR.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            DependencyService.Register<Geolocator>();
             Xamarin.FormsMaps.Init(this, bundle);
+
             LoadApplication(new App());
         }
     }

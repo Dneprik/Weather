@@ -10,9 +10,13 @@
   <StackLayout>
 
     <maps:Map
-        x:Name="MyMap"
-        IsShowingUser="true"
+        x:Name="MyWeatherMap"
+        IsShowingUser="True"
         MapType="Hybrid"
+        HasScrollEnabled="True"
+        HasZoomEnabled="True"
+      
         />
+      
   </StackLayout>
 </ContentPage>

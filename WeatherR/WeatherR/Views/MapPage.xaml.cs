@@ -3,29 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using WeatherR.Services.Location;
+using WeatherR.Services.Map;
+using WeatherR.Weather;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
+using XLabs.Forms.Controls;
+using XLabs.Platform.Services.Geolocation;
 
 namespace WeatherR.Views
 {
     public partial class MapPage : ContentPage
     {
+        private readonly IMap _weatherMap;
+        private readonly ILocation _location;
         public MapPage()
         {
               InitializeComponent();
-        //    var map = new Map(
-        //      MapSpan.FromCenterAndRadius(
-        //              new Position(37, -122), Distance.FromMiles(0.3)))
-        //    {
-        //        IsShowingUser = true,
-        //        HeightRequest = 100,
-        //        WidthRequest = 960,
-        //        VerticalOptions = LayoutOptions.FillAndExpand
-        //    };
-        //    var stack = new StackLayout { Spacing = 0 };
-        //    stack.Children.Add(map);
-        //    Content = stack;
+
+            Map map = MyWeatherMap;
+            _weatherMap = new WeatherMap(map);
+            _location = new Location();
+            _weatherMap.ShowCurrentLocationAsync(_location);
+
         }
+
+
     }
 }
